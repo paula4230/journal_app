@@ -5,8 +5,14 @@ class TasksController < ApplicationController
         @tasks = @category.tasks
     end
 
+    
+
     def new
         @task = @category.tasks.build
+    end
+
+    def show
+
     end
 
     def create
