@@ -9,4 +9,9 @@ class CategoryTest < ActiveSupport::TestCase
 
     assert_not category.save
   end
+
+
 end
+
+
+
