@@ -3,8 +3,24 @@
 <p>
   <strong>Title:</strong>
   <%= @category.title %>
+  <br>
+  <td><%= link_to 'Update', edit_category_path(@category) %></td>
+  <td><%= link_to 'Delete', @category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </p>
 
+<table>
+  <tbody>
+    <% @category.tasks.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.details %></td>
+        <td><%= link_to 'Show', category_task_path(@category, task) %></td>
+        <td><%= link_to 'Edit', edit_category_task_path(@category, task) %></td>
+        <td><%= link_to 'Destroy', category_task_path(@category, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
+
 <%= link_to 'Back to Categories', categories_path %>
