@@ -1,0 +1,21 @@
+<%= form_with model: [@category, task] do |f|%>
+    <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+
+    <div class="field">
+        <%= f.label :details %>
+        <%= f.text_area :details %>
+    </div>
+
+    <div class="field">
+        <%= f.label :due %>
+        <%= f.text_area :due %>
+    </div>
+
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+
+<% end %>
