@@ -16,6 +16,7 @@
       <tr>
         <td><%= link_to category.title, category %></td>
         <td><%= link_to 'View Tasks', category_tasks_path(category) %></td>
+        <td><%= link_to 'New task', new_category_task_path(category.id) %></td>
         <td><%= link_to 'Edit', edit_category_path(category.id) %></td>
       </tr>
     <% end %>
