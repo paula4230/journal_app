@@ -12,14 +12,21 @@ class TasksController < ApplicationController
     def create
         @task = @category.tasks.build(task_params)
 
-        respond_to do |format|
+
             if @task.save
-              format.html { redirect_to category_tasks_path, notice: "Task was successfully created." }
+              redirect_to category_tasks_path, notice: "Task was successfully created." 
             else
-              format.html { render :new, status: :unprocessable_entity }
+              render :new, status: :unprocessable_entity 
             end
           end
+
+
+    def update
+        if @category.task.update(task_params)
+        end
+        
     end
+
 
     private
 
@@ -28,6 +35,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-        params.require(:task).permit(:title, :details)
+        params.require(:task).permit(:title, :details, :due)
     end
 end
