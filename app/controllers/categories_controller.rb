@@ -36,19 +36,18 @@ class CategoriesController < ApplicationController
   end
 
   
-    def destroy
-      @category.destroy
-      respond_to do |format|
-        redirect_to categories_url, notice: "Category was successfully destroyed." 
-      end
+  def destroy
+    @category.destroy
+      redirect_to categories_url, notice: "Category was successfully destroyed." 
     end
+  end
   
-    private
-    def set_category
-      @category = Category.find(params[:id])
-    end
+  private
+  def set_category
+    @category = Category.find(params[:id])
+  end
   
-    def category_params
-      params.require(:category).permit(:title, :body)
-    end
+  def category_params
+    params.require(:category).permit(:title, :body)
+  end
 end
