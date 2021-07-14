@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get "/users/sign_in" => "users/sessions#new"
+    post "/users/sign_in" => "users/sessions#create"
     get '/users/sign_out',  :to => 'devise/sessions#destroy'
   end
 
