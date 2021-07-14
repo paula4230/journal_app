@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+    belongs_to :category
 
-    validates :title, :details, presence: true
+    validates :title, presence: true
 end
