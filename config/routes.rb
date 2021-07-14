@@ -12,8 +12,5 @@ Rails.application.routes.draw do
     get "/users/sign_in" => "users/sessions#new"
     get '/users/sign_out',  :to => 'devise/sessions#destroy'
   end
- 
-    
-  
 
 end
