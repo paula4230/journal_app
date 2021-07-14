@@ -1,36 +1,40 @@
 class TasksController < ApplicationController
-
     before_action :get_category
     def index
         @tasks = @category.tasks
     end
-
     
-
     def new
         @task = @category.tasks.build
     end
 
     def show
-
     end
 
     def create
         @task = @category.tasks.build(task_params)
-
-
-            if @task.save
-              redirect_to category_tasks_path, notice: "Task was successfully created." 
-            else
-              render :new, status: :unprocessable_entity 
-            end
-          end
+        if @task.save
+            redirect_to category_tasks_path, notice: "Task was successfully created." 
+        else
+            render :new
+        end
+    end
 
 
     def update
-        if @category.task.update(task_params)
+        @task = @category.task.update(task_params)
+        
+        if @task.update(task_params)
+                redirect_to category_tasks_path, notice: "Task was successfully updated." 
+            else
+              render :edit
         end
         
+    end
+
+    def destroy
+        @task.destroy
+        redirect_to category_tasks_path, notice: "Task was successfully destroyed." 
     end
 
 
