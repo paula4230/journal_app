@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show edit update destroy ]
-
+  before_action :is_current_user, only: %i[ show edit update destroy ]
 
 
   def index
@@ -11,14 +11,16 @@ class CategoriesController < ApplicationController
   end
   
   def new
-    @category = Category.new
+    # @category = Category.new
+    @category = current_user.categories.build
   end
   
   def edit
   end
   
   def create
-    @category = Category.new(category_params)
+    # @category = Category.new(category_params)
+    @category = current_user.categories.build(category_params)
   
 
     if @category.save
@@ -40,7 +42,7 @@ class CategoriesController < ApplicationController
   
   def destroy
     @category.destroy
-      redirect_to categories_url, notice: "Category was successfully destroyed." 
+      redirect_to categories_path, notice: "Category was successfully destroyed." 
   end
   
   private
@@ -50,5 +52,10 @@ class CategoriesController < ApplicationController
   
   def category_params
     params.require(:category).permit(:title, :user_id)
+  end
+
+  def is_current_user
+    @category = current_user.categories.find_by(id: params[:id])
+    redirect_to categories_path, notice: "Not allowed to do that" if @category.nil?
   end
 end
