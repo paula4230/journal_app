@@ -5,4 +5,9 @@
 # below each fixture, per the syntax in the comments below
 #
 
+lisa:
+  email: lisa@yg.com
+
+jennie:
+  email: jennie_kim@yahoo.com
 
