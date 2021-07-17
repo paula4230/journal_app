@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-
   
   resources :categories do
     resources :tasks
@@ -13,5 +12,6 @@ Rails.application.routes.draw do
     post "/users/sign_in" => "users/sessions#create"
     get '/users/sign_out',  :to => 'devise/sessions#destroy'
   end
+
 
 end
