@@ -23,10 +23,6 @@
       </tr>
     <% end %>
     <td><%= link_to 'Add Task', new_category_task_path(@category, @task) %></td> 
+    <%= link_to 'Back', root_path %>
   </tbody>
 </table>
-
-<br>
-
-
-<%= link_to 'Back to Category', categories_path %>
