@@ -1,11 +1,17 @@
 class TasksController < ApplicationController
+    before_action :authenticate_user!
     before_action :get_category
-    before_action :set_post, only: [:show, :edit, :update, :destroy]
+    # before_action :set_task, only: [:show, :edit, :update, :destroy]
+    before_action :is_current_user, only: [:show, :edit, :update, :destroy]
 
     def index
         @tasks = @category.tasks
     end
-    
+
+    def urgent
+        @urgent_tasks = tasks.where(due:Date.today)
+    end
+
     
     def new
         @task = @category.tasks.build
@@ -44,14 +50,20 @@ class TasksController < ApplicationController
     private
 
     def get_category
-        @category = Category.find(params[:category_id])
+        @category = current_user.categories.find(params[:category_id])
+        redirect_to categories_path, notice: "Not allowed to do that" if @category.nil?
     end
 
-    def set_post
+    def is_current_user
         @task = @category.tasks.find(params[:id])
-      end
+        redirect_to categories_path, notice: "Not allowed to do that" if @task.nil?
+    end
+
+    # def set_task
+    #     @task = @category.tasks.find(params[:id])
+    # end
 
     def task_params
-        params.require(:task).permit(:title, :details, :due)
+        params.require(:task).permit(:title, :details, :due, :user_id)
     end
 end
