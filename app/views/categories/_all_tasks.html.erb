@@ -1,0 +1,39 @@
+
+<h1>Categories: All Urgent Tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Action</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>  
+</table>
+
+<br>
+
+<tbody>
+    <% @categories.each do |category| %>
+      <tr>
+      <% category.tasks.each do |task| %>
+      <tr>
+      <% task.urgent_tasks.each do |task| %>
+        <td><%= task.title %></td>
+        <td><%= task.details %></td>
+        <td><%= task.due %></td>
+        <td><%= category.title %></td>
+    <% end %>
+
+        
+        <td><%= link_to 'View Tasks', category_tasks_path(category)%> </td> 
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Delete',category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Add Task', new_category_task_path(category) %></td> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'New Category', new_category_path %>
