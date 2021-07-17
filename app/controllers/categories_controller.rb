@@ -1,18 +1,19 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_category, only: %i[ show edit update destroy ]
   before_action :is_current_user, only: %i[ show edit update destroy ]
 
-
   def index
-    @categories = Category.all
+    @categories = current_user.categories
   end
-  
-  def show
-  end
+
   
   def new
     # @category = Category.new
     @category = current_user.categories.build
+  end
+
+  def show
   end
   
   def edit
