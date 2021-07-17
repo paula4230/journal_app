@@ -1,7 +1,37 @@
 <%= render "home/header" %>
+<p id="notice"><%= notice %></p>
 
-<% if user_signed_in?%>
-    <h1>Home#index</h1>
-    <p>Find me in app/views/home/index.html.erb</p>
-    <%= link_to 'Categories', categories_path %>
+<% if user_signed_in? %>
+    <h1>Dashboard</h1>
+    <%= link_to 'View Urgent Tasks', categories_path %>    
+    <%= link_to 'View All Tasks', categories_path(@category) %> 
+    <h1>Categories</h1>
+
+  <table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Action</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.title %></td>
+        <td><%= link_to 'View Tasks', category_tasks_path(category)%> </td> 
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Delete',category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Add Task', new_category_task_path(category) %></td> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category', new_category_path %>
+
 <%end%>   
+
