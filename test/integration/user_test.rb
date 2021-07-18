@@ -32,16 +32,9 @@ class UserTest < ActionDispatch::IntegrationTest
   end
 
   test "user should be able to view their categories" do
-    get "/users/sign_in"  
-    assert_select "form"
-
-    post "/users",
-    params: { users: {email: 'lisa@yg.com' }}
+    get "/users/sign_in"
     assert_response :success
 
-    get "/"
-    assert_response :redirect
-    follow_redirect!
   end
 
   test "user should be able to create categories " do
@@ -102,6 +95,10 @@ class UserTest < ActionDispatch::IntegrationTest
 
   end
 
+  test "user should have a separate view only for tasks that are due today" do
+    get "/categories"
+    assert_response :redirect
+  end
 
 
 
