@@ -9,3 +9,9 @@
 #
 
 # column: value
+
+read_book:
+  title: readbook
+  user_id: 1
+  category_id: 1
+  id: 1
