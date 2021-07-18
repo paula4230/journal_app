@@ -56,6 +56,17 @@ class UserTest < ActionDispatch::IntegrationTest
 
   end
 
+  test "user should be able to update their categories" do
+    get "/categories"
+    assert_response :redirect
+    follow_redirect!
+
+    patch "/categories/#{:id}",
+    params: { category: { title: "update title" } }
+    assert_response :redirect
+    follow_redirect!
+  end
+
 
 
 
