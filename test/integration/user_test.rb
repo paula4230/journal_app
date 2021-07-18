@@ -44,6 +44,18 @@ class UserTest < ActionDispatch::IntegrationTest
     follow_redirect!
   end
 
+  test "user should be able to create categories " do
+    get "/categories/new"
+    assert_response :redirect
+  
+
+    post "/categories",
+    params: { category: { title: "new category"} }
+    assert_response :redirect
+    follow_redirect!
+
+  end
+
 
 
 
