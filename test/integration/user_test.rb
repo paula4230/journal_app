@@ -31,6 +31,19 @@ class UserTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "user should be able to view their categories" do
+    get "/users/sign_in"  
+    assert_select "form"
+
+    post "/users",
+    params: { users: {email: 'lisa@yg.com' }}
+    assert_response :success
+
+    get "/"
+    assert_response :redirect
+    follow_redirect!
+  end
+
 
 
 
