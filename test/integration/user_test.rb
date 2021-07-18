@@ -77,6 +77,12 @@ class UserTest < ActionDispatch::IntegrationTest
     follow_redirect!
   end
 
+  test "user should be able to view tasks under a category" do
+    get category_tasks_url(@tasks)
+    assert_response :redirect
+    follow_redirect!
+  end
+
 
 
 
