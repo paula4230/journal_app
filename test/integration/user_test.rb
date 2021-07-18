@@ -1,6 +1,23 @@
 require "test_helper"
 
 class UserTest < ActionDispatch::IntegrationTest
+
+  setup do
+    @category = Category.all
+  end
+
+  setup do
+    @category = categories(:leisure)
+  end
+
+  setup do
+    @tasks = Task.all
+  end  
+
+  setup do
+    @task = tasks(:read_book)
+  end  
+it 
   
   test "email should not be empty in the login form" do
     get "/users/sign_in"
@@ -89,9 +106,10 @@ class UserTest < ActionDispatch::IntegrationTest
 
   test "user should be able to delete their tasks" do
     assert_difference("Task.count", -1) do
-      delete "/categories/1/tasks/1"
+      # delete "/categories/#{:category_id}/tasks/#{:id}"
+      delete category_task_url(@category, @task)
     end
-    assert_redirected_to "/categories/1/tasks/"
+
 
   end
 
@@ -99,8 +117,5 @@ class UserTest < ActionDispatch::IntegrationTest
     get "/categories"
     assert_response :redirect
   end
-
-
-
 
 end

@@ -11,7 +11,7 @@
 # column: value
 
 read_book:
-  title: readbook
+  title: "read book"
   user_id: 1
-  category_id: 1
+  category_id: 2
   id: 1
