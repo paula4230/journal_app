@@ -83,6 +83,17 @@ class UserTest < ActionDispatch::IntegrationTest
     follow_redirect!
   end
 
+  test "user should be able to update their tasks" do
+    get "/categories/#{:category_id}/tasks/#{:id}/edit"
+    assert_response :redirect
+    follow_redirect!
+
+    patch "/categories/#{:category_id}/tasks/#{:id}",
+    params: { task: { title: "update title" } }
+    assert_response :redirect
+    follow_redirect!
+  end 
+
 
 
 
