@@ -94,6 +94,13 @@ class UserTest < ActionDispatch::IntegrationTest
     follow_redirect!
   end 
 
+  test "user should be able to delete their tasks" do
+    assert_difference("Task.count", -1) do
+      delete "/categories/1/tasks/1"
+    end
+    assert_redirected_to "/categories/1/tasks/"
+
+  end
 
 
 
