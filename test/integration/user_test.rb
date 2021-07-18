@@ -22,6 +22,15 @@ class UserTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "user should be able to sign up" do
+    get "/users/sign_up"  
+    assert_select "form"
+
+    post "/users",
+    params: { users: {email: 'lisa@yg.com' }}
+    assert_response :success
+  end
+
 
 
 
