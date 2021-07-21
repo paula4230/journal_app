@@ -1,38 +1,34 @@
 
-<h1>Categories: All Urgent Tasks</h1>
+<div class="board">
+  <h1 id="category-title">Tasks Due Today <%= Date.today %> </h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Action</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>  
-</table>
+  <div class="back-container">
+  <%= link_to 'Back', root_path, class:"back-button" %>
+  </div> 
+</div> 
+
+
 
 <br>
-
-<tbody>
+<div class= "table-task">
+<table class="task-container">
+<tbody class ="task_details">
     <% @categories.each do |category| %>
-      <tr>
       <% category.tasks.where(due: Date.today).each do |task| %>
-      <tr>
-        <td><%= task.title %></td>
-        <td><%= task.details %></td>
-        <td><%= task.due %></td>
-        <td><%= category.title %></td>
-    <% end %>
-
-        
-        <td><%= link_to 'View Tasks', category_tasks_path(category)%> </td> 
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Delete',category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Add Task', new_category_task_path(category) %></td> 
+      <tr class= "each_urgent_task">
+        <td class="task-holder">
+          <p id="task-title"><%= task.title %></p>
+          <p id="task-due"><%= task.details %></p>
+          <p id="task-details">Category: <%= category.title %></p>
+        </td>
       </tr>
     <% end %>
+
+    
+
+      
+    <% end %>
+
   </tbody>
 </table>
 
-
-<%= link_to 'New Category', new_category_path %>

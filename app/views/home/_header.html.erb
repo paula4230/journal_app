@@ -1,9 +1,35 @@
-  <nav class="navbar">
+<nav class="nav-bar">
+<div class="container-nav">
+  <div class="task-navigator">
+  <% if user_signed_in?%>
+    <div class= "brand-logo">
+      <a class="navbar-brand" href= "/"><%=image_tag "alexa.png", id:"logo-brand"%></a>
+    </div>
+      <div id="urgent">
+      <%= link_to 'Urgent Tasks', categories_path, class:"urgent_tasks" %>    
+      </div>
+  <% else %>
+    <div class="to-start">
+      <div class= "session-button" id="off-session">
+        <%= link_to 'Login', new_user_session_path, class:"button-user", id:"login"%>
+      </div>
+      <div class= "session-button">
+        <%= link_to 'Sign Up', new_user_registration_path, class:"button-user", id:"signup"%>
+      </div>
+    </div>
+      
+    <%end%>  
+  </div>
+
+  <div class="nav-bar-options">
     <% if user_signed_in?%>
-      <%= link_to 'Update Profile', edit_user_registration_path%>
-      <%= link_to 'Logout', destroy_user_session_path %>
-    <% else %>
-      <%= link_to 'Login', new_user_session_path %>
-      <%= link_to 'Sign Up', new_user_registration_path%>
-    <%end%>   
-  </nav>
+      <div class= "session-button">
+        <%= link_to 'Update Profile', edit_user_registration_path, class:"button-user", id:"update-profile"%>
+      </div>
+      <div class= "session-button" id="on-session">
+        <%= link_to 'Logout', destroy_user_session_path, class:"button-user", id:"logout"%>
+      </div>
+    <%end%>     
+  </div>
+</div>
+</nav>

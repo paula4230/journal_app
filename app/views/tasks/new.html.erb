@@ -1,5 +1,12 @@
-<%= "New Task" %>
+<div class="user_entry">
+<br>
+<br>
+    <h1 id="category-title">New Task</h1>
+    <div class='form-render'>
+        <%= render 'form', task: @task%>
+    </div>
+    <div class="back-container">
+         <%= link_to 'Back', category_tasks_path, class:"back-button" %>
+    </div> 
 
-<%= render 'form', task: @task%>
-
-<%= link_to 'Back', category_tasks_path%>
+</div>

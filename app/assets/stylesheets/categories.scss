@@ -1,3 +1,147 @@
 // Place all the styles related to the categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.table-container{
+    display:flex;
+    justify-content: center;
+    margin-top: 3vmin;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.category-container{
+    display: flex;    
+    justify-content: center;
+}
+.category_details{
+    width: 160vmin;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: inherit;
+}
+
+.each_category{
+    border: 2px white;
+    border-style:outset;
+    width: 20vmin;
+    height: 20vmin;
+    margin: 3vmin;
+    background-color: white;
+    opacity: 0.7;
+    border-radius: 1vmin;
+    display:flex;
+    flex-direction: column;  
+}
+
+
+.category-holder{
+    height:inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ct-options{
+    display: flex;
+    justify-content: space-between;
+}
+
+#category-name{
+    text-decoration: none;
+    color: black;
+    font-size: 3vmin;
+    font-weight: bold;
+}
+
+#category-name:hover{
+    text-decoration: none;
+    color: black;
+    font-size: 4vmin;
+    font-weight: bold;
+}
+
+img{
+    width: 2vmin;
+    margin-top: 0.5vmin;
+    margin-right: 0.5vmin;
+    margin-left: 0.5vmin;
+}
+
+img:hover{
+    width: 3vmin;
+    margin-top: 0.5vmin;
+    margin-right: 0.5vmin;
+    margin-left: 0.5vmin;
+}
+
+.form-category{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black
+}
+
+.category_form_header{
+    margin-top: 10vmin;
+    margin-bottom: 5vmin;
+    border: 1px solid black
+}
+
+.back-button{
+    color: #7b7a7a;
+    text-decoration: none;
+    font-size: 2vmin;
+    font-weight: bold;
+}
+
+.back-button:hover{
+    color: #7b7a7a;
+    text-decoration: none;
+    font-size: 2vmin;
+    font-weight: bold;
+}
+
+.back-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+input[type="submit" i]{
+    border: 3px solid black;
+    height: 3vmin;
+    width: 17vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vmin;
+    border-radius: 1vmin;
+    background-color: black;
+    color: white;
+    padding-top:0;
+    padding-bottom: 3vmin;
+}
+
+.field {
+    color: #7b7a7a;
+    
+
+}
+
+.field-category{
+    color: #7b7a7a;
+    display: flex;
+    flex-direction: column;
+    font: 2vmin;
+    width:35vmin;
+    justify-content: center;
+    margin-left: 4vmin;
+
+}
+
+#category_title{
+    width: 35vmin
+}

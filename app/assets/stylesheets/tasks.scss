@@ -1,3 +1,111 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#category-title{
+    font-weight: bold;
+    font-size: 5vmin;
+    margin-top: 7vmin;
+    color: #7b7a7a
+}
+
+#to-do{
+    margin-bottom: 3vmin;
+    color: #7b7a7a;
+    font-weight: bold;
+    font-size:2vmin
+}
+
+.table-task{
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.task-container{
+    display: flex;    
+    justify-content: center;
+
+}
+
+.task_details{
+    width: 160vmin;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+.each_task{
+    margin: 2vmin;
+    height: 20vmin;
+    width: 50vmin;
+    border: 2px white;
+    border-style:outset;
+    opacity: 0.7;
+    border-radius: 1vmin;
+    flex-direction: column; 
+    border-collapse: collapse;
+}
+
+.each_urgent_task{
+    margin: 2vmin;
+    height: 10vmin;
+    width: 50vmin;
+    border: 2px white;
+    border-style:outset;
+    opacity: 0.7;
+    border-radius: 1vmin;
+    display:flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.task-holder{
+    display: flex;
+    flex-direction: column;
+    align-items:center
+    
+}
+
+#task-title, #task-due, #task-details{
+    margin:0
+}
+
+#task-details{
+    font-size: 2vmin;
+}
+
+#task-title{
+    font-weight: bold;
+    color: black;
+    font-size: 3vmin;
+}
+
+#task-due{
+    font-size: 1.5vmin;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    width: 45vmin;
+  }
+
+  .field-task{
+    color: #7b7a7a;
+    display: flex;
+    flex-direction: column;
+    font-size: 2vmin;
+    width:35vmin;
+    justify-content: center;
+    margin-left: 4vmin;
+}
+
+#task_title, #task_due{
+    width: 35vmin
+}

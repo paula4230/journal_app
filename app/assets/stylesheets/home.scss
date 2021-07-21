@@ -1,3 +1,221 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+*{
+    margin: 0;
+}
+
+body{
+    background: image-url('work.jpg') no-repeat center center; 
+    background-size: cover;
+    height: 95vmin;
+    background-attachment: fixed;
+}
+.nav-bar{
+    margin-top: 0;
+    margin-left: 3vmin;
+    margin-right: 3vmin;
+    height: 12vmin;
+}
+
+.nav-container{
+    width: 40vmin;
+    
+}
+
+.container-nav{
+    display:flex;
+    justify-content: space-between;
+}
+.navbar-brand{
+    margin-right: 2vmin;
+}
+
+.task-navigator{
+
+    width: 57vmin;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.brand-logo{
+    margin-right: 1vmin;
+    margin-left: 1vmin;
+    height: inherit;
+}
+
+.to-start{
+    margin-top: 3vmin;
+    width: 57vmin;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-bar-options{
+    width: 50vmin;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3vmin;
+    margin-bottom: 2vmin;
+}
+
+.task-button, .session-button{
+    height: 5vmin;
+    width:23vmin;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vmin;
+    border-radius: 1vmin;
+}
+#login, #signup{
+
+}
+.session-button{
+    border: 2px solid #7b7a7a;
+    margin-left: 1vmin;
+    margin-right: 1vmin;
+}
+
+.button-user, .add-category, .urgent_tasks{
+    text-decoration: none;
+
+}
+
+#signup{
+    color: black;
+}
+
+#off-session, #on-session{
+    background-color: black;
+    border: #7b7a7a;
+}
+
+#update-profile{
+    color:black
+}
+
+.button-user{
+    color:white
+}
+
+.button-user:hover{
+    color:white;
+    font-size: 3.5vmin
+}
+
+
+.board{
+    border-top: 5px solid #7b7a7a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard{
+    color: #7b7a7a;
+    font-size: 11vmin;
+    margin-top: 1vmin;
+}
+
+#board-title{
+
+}
+
+#urgent, .add-category{
+    border: 3px solid #7b7a7a;
+    height: 5vmin;
+    width: 24vmin;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vmin;
+    border-radius: 1vmin;
+    background-color: #7b7a7a;
+    color: white
+}
+
+#logo-brand{
+    width: 22vmin
+}
+
+#logo-brand-intro{
+    margin-top: 9vmin;
+    width: 35vmin
+}
+
+.urgent_tasks, .task-button{
+    color: white;
+}
+
+.urgent_tasks:hover, .add-category:hover {
+    color: #fff;
+    font-size: 2.5vmin;
+}
+
+.intro{
+    margin-top: 3vmin;
+    font-size: 3vmin;
+    color: #7b7a7a;
+    font-weight: bold;
+}
+
+.user_entry{
+    border-top: 5px solid #7b7a7a;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.forgot-password {
+    color: #757a7a;
+    text-decoration: none
+}
+
+.actions{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vmin;
+}
+
+.sign-up-field{
+    font-size: 2vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:30vmin
+}
+
+input[type="email" i], input[type="password" i] {
+    width: 30vmin
+}
+
+.new_user{
+
+    display: flex;
+    flex-direction: column;
+    width: 30vmin
+}
+.tick-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.forgot-password, .field, .tick-box, .field-category{
+    font-size: 2vmin
+}
+
+#user_remember_me{
+    margin-right: 1vmin
+}

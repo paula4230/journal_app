@@ -1,6 +1,31 @@
-<%= form_with scope: :task, model: [@category, @task], local:true do |f|%>
 
-  <% if task.errors.any? %>
+<%= form_with scope: :task, model: [@category, @task], local:true do |f|%>
+      <div class="field-task">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+
+    <div class="field-task">
+        <%= f.label :details %>
+        <%= f.text_area :details %>
+    </div>
+
+    <div class="field-task">
+        <%= f.label :due %>
+        <%= f.date_field :due %>
+    </div>
+
+    <div class="field-task">
+        <%= f.number_field :user_id, id: :category_user_id, value: current_user.id, type: :hidden %>
+    </div>
+
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+
+<% end %>
+
+<% if task.errors.any? %>
   
     <div id="error_explanation">
     <ul>
@@ -9,30 +34,4 @@
       <% end %>
     </ul>
     </div>
-  <% end %>
-
-    <div class="field">
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-    </div>
-
-    <div class="field">
-        <%= f.label :details %>
-        <%= f.text_area :details %>
-    </div>
-
-    <div class="field">
-        <%= f.label :due %>
-        <%= f.date_field :due %>
-    </div>
-
-    <div class="field">
-        <%= f.label :user_id %>
-        <%= f.number_field :user_id, id: :category_user_id, value: current_user.id %>
-    </div>
-
-    <div class="actions">
-        <%= f.submit %>
-    </div>
-
 <% end %>

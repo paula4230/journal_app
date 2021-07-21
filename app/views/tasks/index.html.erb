@@ -1,28 +1,40 @@
-<p id="notice"><%= notice %></p>
+<%# <p id="notice"><%= notice %>
+<div class="board">
+<h1 id="category-title"><%= @category.title%> </h1>
+<p id="to-do">To-Do List</p>
+<div class= "task-button">
+  <%= link_to 'Add Task', new_category_task_path(@category, @task), class:"add-category"%>
+</div>
+</div>
 
-<h1>tasks</h1>
+<div class="back-container">
+  <%= link_to 'Back', root_path, class:"back-button" %>
+</div> 
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Action</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class= "table-task">
+  <table class="task-container">
+  <tbody class ="task_details">
     <% @category.tasks.each do |task| %>
-      <tr>
-        <td><%= task.title %></td>
-        <td><%= task.details %></td>
-        <td><%= task.due %></td>
+      <tr class= "each_task">
+      <td class="ct-options">
+        <%= link_to image_tag('edit.png'),edit_category_task_path(@category, task), id:"edit" %>
+        <%# <td><%= link_to 'View Tasks', category_tasks_path(category)%> 
+        <%= link_to image_tag('delete.png'),category_task_path(@category, task), method: :delete, data: { confirm: 'Are you sure?' }%> 
+      </td>
+
+          <td class="task-holder">
+            <p id="task-title"> <%= task.title %><p id="task-title">
+            <p id="task-due"><%= task.due %></p>
+            <br>
+            <p id="task-details"><%= task.details %></p>
+          </td>
+        </tr>
         <%# <td><%= link_to 'Show', category_task_path(@category, task) %>
-        <td><%= link_to 'Edit', edit_category_task_path(@category, task) %></td>
-        <td><%= link_to 'Destroy', category_task_path(@category, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        </tr>
     <% end %>
-    <td><%= link_to 'Add Task', new_category_task_path(@category, @task) %></td> 
-    <%= link_to 'Back', root_path %>
+    
   </tbody>
 </table>
+
+</div>
+

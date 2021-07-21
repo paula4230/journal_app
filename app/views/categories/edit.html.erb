@@ -1,5 +1,14 @@
-<h1>Update Category</h1>
+<div class="user_entry">
+<br>
+<br>
+    <h1 id="category-title">Update Category</h1>
+    <br>
+    <div class='form-render'>
+        <%= render 'form', category: @category %>
+    </div>
 
-<%= render 'form', category: @category %>
+    <div class="back-container">
+  <%= link_to 'Back', root_path, class:"back-button" %>
+    </div> 
 
-<%= link_to 'Back', categories_path %>
+</div>

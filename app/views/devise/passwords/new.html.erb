@@ -1,16 +1,22 @@
-<h2>Forgot your password?</h2>
+<div class="user_entry">
+    <%=image_tag "alexa.png", id:"logo-brand-intro"%>
+
+<p class ="intro">Forgot your password?</p>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+<div class="sign-up-field">
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Reset password" %>
   </div>
 <% end %>
-
+  </div>
 <%= render "devise/shared/links" %>
+
+</div>
