@@ -2,22 +2,21 @@ require "test_helper"
 
 class UserTest < ActionDispatch::IntegrationTest
 
-  setup do
-    @category = Category.all
-  end
+  # setup do
+  #   @category = Category.all
+  # end
 
-  setup do
-    @category = categories(:leisure)
-  end
+  # setup do
+  #   @category = categories(:leisure)
+  # end
 
-  setup do
-    @tasks = Task.all
-  end  
+  # setup do
+  #   @tasks = Task.all
+  # end  
 
-  setup do
-    @task = tasks(:read_book)
-  end  
-it 
+  # setup do
+  #   @task = tasks(:read_book)
+  # end  
   
   test "email should not be empty in the login form" do
     get "/users/sign_in"
@@ -51,10 +50,16 @@ it
   test "user should be able to view their categories" do
     get "/users/sign_in"
     assert_response :success
-
+    
+    get "/"
+    assert_response :redirect
+    follow_redirect!
   end
 
   test "user should be able to create categories " do
+    get "/users/sign_in"
+    assert_response :success
+
     get "/categories/new"
     assert_response :redirect
   
@@ -67,6 +72,9 @@ it
   end
 
   test "user should be able to update their categories" do
+    get "/users/sign_in"
+    assert_response :success
+
     get "/categories"
     assert_response :redirect
     follow_redirect!
@@ -78,6 +86,9 @@ it
   end
 
   test "user should be able to create tasks" do
+    get "/users/sign_in"
+    assert_response :success
+
     get "/categories/#{:category_id}/tasks/new"
     assert_response :redirect
   
@@ -94,6 +105,9 @@ it
   end
 
   test "user should be able to update their tasks" do
+    get "/users/sign_in"
+    assert_response :success
+
     get "/categories/#{:category_id}/tasks/#{:id}/edit"
     assert_response :redirect
     follow_redirect!
@@ -105,10 +119,20 @@ it
   end 
 
   test "user should be able to delete their tasks" do
-    assert_difference("Task.count", -1) do
-      # delete "/categories/#{:category_id}/tasks/#{:id}"
-      delete category_task_url(@category, @task)
-    end
+    # assert_difference("Task.count", -1) do
+    #   delete category_task_url(@category, @task)
+    #   params: {task: tasks(:read_book) }
+    # end
+    get "/users/sign_in"
+    assert_response :success
+
+    post user_session_path, params: {user: {email:    users(:lisa).email}}
+
+    delete "/categories/#{categories(:leisure).id}/tasks/#{tasks(:read_book).id}", params: {task: {id: tasks(:read_book).id}}
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+
 
 
   end
